@@ -53,7 +53,7 @@ if(isset($_POST["btn-login"])){
 
     if($user && password_verify($pass, $user['password'])){
       $_SESSION['loginId'] = $user['id'];
-      header(location:profile.php);
+      header("location:profile.php");
     }else{
       eader("location:login.php?message=Invalid User");
     }
