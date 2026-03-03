@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Register</title>
     <?php include 'bootstrapCss.php'; ?>
 </head>
 <body class="bg-light">
