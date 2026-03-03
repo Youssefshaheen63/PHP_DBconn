@@ -6,7 +6,11 @@
     <?php include 'bootstrapCss.php'; ?>
 </head>
 <body class="bg-light">
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php'; 
+       if (isset($_GET["message"])) {
+        echo "<p class='alert alert-success w-57 text-center'>" . $_GET["message"] . "</p>";
+    }
+    ?>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-4">
@@ -24,7 +28,9 @@
                                 <label class="form-label fw-bold">Password</label>
                                 <input type="password" name="login_pass" class="form-control" placeholder="Enter password" required>
                             </div>
-                            <button type="submit" class="btn btn-success w-100 py-2">Sign In</button>
+                            <button type="submit"
+                            name='btn-login' 
+                            class="btn btn-success w-100 py-2">Sign In</button>
                         </form>
                     </div>
                     <div class="card-footer text-center py-3">

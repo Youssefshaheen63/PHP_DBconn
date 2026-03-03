@@ -9,6 +9,7 @@ $password='';
 try {
   $conn = new PDO("$dbType:host=$host;dbname=$dbName", $userName, $password);
   echo 'Connected Successfully';
+  session_start();
 } catch (PDOException $e) {
   echo $e->getMessage();
 }
