@@ -55,8 +55,29 @@ if(isset($_POST["btn-login"])){
       $_SESSION['loginId'] = $user['id'];
       header("location:profile.php");
     }else{
-      eader("location:login.php?message=Invalid User");
+      header("location:login.php?message=Invalid User");
     }
+}
+
+// delete user
+if(isset($_GET["deleteId"])){
+   $query = $conn->prepare("delete from users where id = ?");
+    $query->execute([$_GET['deleteId']]);
+    header("location:allUsers.php?message=delete user done");
+    exit;
+}
+
+// update
+if (isset($_POST["btn-update"])) {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+
+    $query = "update users set name = :name, email = :email where id = :id";
+    $query = $conn->prepare($query);
+    $query->execute([':name' => $name, ':email' => $email, ':id' => $id]);
+    header("location:allUsers.php?message=update user done");
+    exit;
 }
 
 ?>

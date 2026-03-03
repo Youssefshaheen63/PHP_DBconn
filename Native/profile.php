@@ -2,7 +2,10 @@
 require "connection.php";
 require "navbar.php";
 
-if(!isset($_SESSION['loginId'])){
+
+$userId = isset($_GET['id']) ? $_GET['id'] : ($_SESSION['loginId'] ?? null);
+
+if(!$userId){
   header("location:login.php?message=Please login first");
   exit;
 }
